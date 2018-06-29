@@ -1,35 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Simple PHP App</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-        <style>body {margin-top: 40px; background-color: #333;}</style>
-        <link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    </head>
-
-    <body>
-        <div class="container">
-            <div class="hero-unit">
-                <h1>Simple PHP App</h1>
-                <h2>Congratulations</h2>
-                <p>Your PHP application is now running on a container in Amazon ECS.</p>
-                <p>The container is running PHP version <?php echo phpversion(); ?>.</p>
-                <?php
-                        $myfile = fopen("/var/www/my-vol/date", "r") or die("");
-                        echo fread($myfile,filesize("/var/www/my-vol/date"));
-                        fclose($myfile);
-                ?>
-
-            </div>
-        </div>
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-    </body>
-
+<html>
+<head>
+    <h1>MY FIRST GOOGLE MAP PLOT</h1>
+<?php
+echo '<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>'; 
+echo '<script type="text/javascript">
+  function initialize() {
+    var position = new google.maps.LatLng(38.9696, -77.3861);
+    var myOptions = {
+      zoom: 10,
+      center: position,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(
+        document.getElementById("map_canvas"),
+        myOptions);
+ 
+    var marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title:"This is the place."
+    });  
+ 
+    var contentString = "xyz content string";
+    var infowindow = new google.maps.InfoWindow({
+        content: contentString
+    });
+ 
+    google.maps.event.addListener(marker,"click", function() {
+        infowindow.open(map,marker);
+    });
+ 
+  }
+ google.maps.event.addDomListener(window, "load", initialize);
+</script>';
+?>
+</head>
+<body>
+  <div id="map_canvas" style="width:500px; height:500px"></div>
+</body>
 </html>
