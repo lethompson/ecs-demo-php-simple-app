@@ -1,0 +1,13 @@
+    <!-- Records -->
+    <div class="w3-quarter w3-margin-bottom w3-padding" ng-repeat="time in times">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme w3-teal">
+          <p class="w3-xlarge">{{ time.duration }}</p>
+          <p class="w3-opacity">Updated every {{ time.frequency }} minutes.</p>
+        </li>
+
+        <li class="w3-padding-16 w3-hover-sand" ng-repeat="item in list" ng-init="loadData('significant', 'hour')">
+         <a ng-click="loadData(item.type, time.title)" ng-href="" >{{ item.description }}</a>
+        </li>
+      </ul>
+    </div>

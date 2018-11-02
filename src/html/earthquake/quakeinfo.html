@@ -1,0 +1,24 @@
+
+   <h3>{{ data.metadata.title }} <span class="w3-padding w3-tag">{{ data.metadata.count }}</span></h3>
+   
+    <div class="w3-card-4 w3-margin w3-white" ng-repeat="quake in data.features">
+        <div class="w3-container w3-padding-8">
+          <h3><b>{{ quake.properties.place }}</b></h3>
+          <h5>Magnitude {{ quake.properties.mag }} {{ quake.properties.magType }}, <span class="w3-opacity">{{ quake.properties.time | date:'MMM d, y h:mm:ss a' }}</span></h5>
+        </div>
+
+        <div class="w3-container">
+          <p>Coordinates: ({{ quake.geometry.coordinates[0] }}, {{ quake.geometry.coordinates[1] }}, {{ quake.geometry.coordinates[2] }}) {{ quake.geometry.type }}</p>
+
+          <hr/>
+          
+          <div class="w3-row">
+            <div class="w3-col m8 s12">
+              <p><a ng-href="{{ quake.properties.url }}"><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></a></p>
+            </div>
+            <div class="w3-col m4 w3-hide-small">
+              <p><span class="w3-padding-large w3-right"><b>Last updated:</b> <span>{{ quake.properties.updated | date:'MMM d, y h:mm:ss a' }}</span></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
