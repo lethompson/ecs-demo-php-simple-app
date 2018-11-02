@@ -27,6 +27,7 @@
     </p>
   </div>
 
+    <p style="text-align:center;"><img class="full-width img-responsive" src="Microservices.png" alt="Microservices" width="70%" height="70%"></p>
 
   <div class="w3-row-padding w3-center w3-padding-64" id="earthquake" ng-controller="QuakeListCtrl">
     <h2><?php echo "Earthquakes data"; ?></h2>
@@ -36,6 +37,8 @@
     <quake-list-directive></quake-list-directive>
 
   </div>
+
+    
 
   <div class="w3-padding" ng-controller="QuakeInfoCtrl">
     <quake-info-directive></quake-info-directive>
